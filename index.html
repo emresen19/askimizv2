@@ -3,51 +3,74 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Seninle Başlayan Hikaye - Dijital Kitap</title>
-  <script src="https://cdn.jsdelivr.net/npm/turn.js@4/turn.min.js"></script>
+  <title>Esma'ya Dijital Hikaye</title>
   <style>
     body {
-      background: #fce4ec;
+      font-family: 'Arial', sans-serif;
+      background: #fff6f9;
+      margin: 0;
+      padding: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-family: 'Georgia', serif;
-    }
-    h1 {
-      margin-top: 20px;
-      color: #880e4f;
-    }
-    #book {
-      width: 600px;
-      height: 400px;
     }
     .page {
-      background: white;
-      padding: 40px;
-      font-size: 20px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
       text-align: center;
+    }
+    .page.active {
+      display: flex;
+    }
+    img {
+      max-width: 300px;
+      border-radius: 20px;
+      margin: 20px 0;
+    }
+    button {
+      background: #ffb6c1;
+      border: none;
+      padding: 10px 20px;
+      margin: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
-  <h1>Seninle Başlayan Hikaye</h1>
-  <div id="book">
-    <div class="page">Bir gün Tesla’da…<br>Sen içeri girdiğinde margaritanı yudumlarken, zaman durdu.<br>O an içimde bir şeylerin değişeceğini biliyordum.</div>
-    <div class="page">Kısacık bir bakış, küçücük bir tebessüm…<br>Ama kalbimde dev bir fırtına.<br>Bir oyun oynadım, fark etmedin belki ama… seni bulmak içinmiş her şey.</div>
-    <div class="page">Sana "Merhaba" dediğim gün, hayatıma "Işık" girdi.<br>Beni önemseyen, her haliyle yanımda duran biri olduğunu hissettim.<br>Ve ben ilk kez tam anlamıyla "tamamlandım".</div>
-    <div class="page">Gülüşün…<br>Sanki karanlık odamda açan ilk güneş.<br>Saçların…<br>Dünyanın tüm güzelliklerini kıskandırır gibi.</div>
-    <div class="page">Sevgilim, hayatım, aşkım…<br>Seninle geçen her an, bataklıktan kurtulup çiçekli bir bahçeye adım atmak gibi.<br>İyi ki o gün margarita içtin.<br>İyi ki ben oradaydım.<br>İyi ki varsın, iyi ki benimlesin.</div>
-    <div class="page">Bu hikaye burada bitmiyor.<br>Çünkü biz daha yeni başlıyoruz…</div>
-  </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      $('#book').turn({
-        width: 600,
-        height: 400,
-        autoCenter: true
-      });
-    });
-  </script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<div id="page1" class="page active">
+  <h2>İlk Karşılaşmamız</h2>
+  <p>Bir gün Teslada çalışırken içeri sen ve arkadaşın geldiniz. Margarita içiyordunuz, o an seni gördüm ve kalbimde bir şeyler değişti.</p>
+  <img src="images/foto1.jpg" alt="İlk karşılaşma">
+  <button onclick="nextPage(1)">Sonraki</button>
+</div>
+
+<div id="page2" class="page">
+  <h2>İlk Mesajım</h2>
+  <p>Ufak bir oyunla Instagram'ını buldum ve yazmaya karar verdim. Belki de hayatımın en güzel kararıydı.</p>
+  <img src="images/foto2.jpg" alt="Birlikte anı">
+  <button onclick="nextPage(2)">Sonraki</button>
+</div>
+
+<div id="page3" class="page">
+  <h2>Sana Dair</h2>
+  <p>Sevgilim, hayatım, aşkım… En sevdiğim şey, beni gerçekten önemsiyor oluşun. Gülüşün, saçların ve kalbinle beni bu bataklıktan sen çıkardın.</p>
+  <img src="images/foto3.jpg" alt="Son sayfa">
+  <button onclick="nextPage(3)">Başa Dön</button>
+</div>
+
+<script>
+  function nextPage(current) {
+    document.getElementById("page" + current).classList.remove("active");
+    let next = current === 3 ? 1 : current + 1;
+    document.getElementById("page" + next).classList.add("active");
+  }
+</script>
+
 </body>
 </html>
