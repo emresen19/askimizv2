@@ -1,20 +1,53 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aşkımızın Hikayesi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Seninle Başlayan Hikaye - Dijital Kitap</title>
+  <script src="https://cdn.jsdelivr.net/npm/turn.js@4/turn.min.js"></script>
+  <style>
+    body {
+      background: #fce4ec;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Georgia', serif;
+    }
+    h1 {
+      margin-top: 20px;
+      color: #880e4f;
+    }
+    #book {
+      width: 600px;
+      height: 400px;
+    }
+    .page {
+      background: white;
+      padding: 40px;
+      font-size: 20px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <h1>Bu Bizim Hikayemiz</h1>
-            <p>Her anı bir yıldız gibi parlayan bir aşk hikayesi.</p>
-            <button onclick="startStory()">Hikayemize Başla</button>
-        </div>
-    </div>
-    <script src="scripts.js"></script>
+  <h1>Seninle Başlayan Hikaye</h1>
+  <div id="book">
+    <div class="page">Bir gün Tesla’da…<br>Sen içeri girdiğinde margaritanı yudumlarken, zaman durdu.<br>O an içimde bir şeylerin değişeceğini biliyordum.</div>
+    <div class="page">Kısacık bir bakış, küçücük bir tebessüm…<br>Ama kalbimde dev bir fırtına.<br>Bir oyun oynadım, fark etmedin belki ama… seni bulmak içinmiş her şey.</div>
+    <div class="page">Sana "Merhaba" dediğim gün, hayatıma "Işık" girdi.<br>Beni önemseyen, her haliyle yanımda duran biri olduğunu hissettim.<br>Ve ben ilk kez tam anlamıyla "tamamlandım".</div>
+    <div class="page">Gülüşün…<br>Sanki karanlık odamda açan ilk güneş.<br>Saçların…<br>Dünyanın tüm güzelliklerini kıskandırır gibi.</div>
+    <div class="page">Sevgilim, hayatım, aşkım…<br>Seninle geçen her an, bataklıktan kurtulup çiçekli bir bahçeye adım atmak gibi.<br>İyi ki o gün margarita içtin.<br>İyi ki ben oradaydım.<br>İyi ki varsın, iyi ki benimlesin.</div>
+    <div class="page">Bu hikaye burada bitmiyor.<br>Çünkü biz daha yeni başlıyoruz…</div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      $('#book').turn({
+        width: 600,
+        height: 400,
+        autoCenter: true
+      });
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </body>
 </html>
